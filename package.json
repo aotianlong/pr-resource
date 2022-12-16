@@ -1,6 +1,6 @@
 {
   "name": "pr-resource",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "none",
   "main": "index.ts",
   "directories": {
@@ -18,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/aotianlong/pr-resource/issues"
   },
-  "homepage": "https://github.com/aotianlong/pr-resource#readme"
+  "homepage": "https://github.com/aotianlong/pr-resource#readme",
+  "dependencies": {
+    "b-validate": "^1.4.3",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "js-base64": "^3.7.3",
+    "moment": "^2.29.4",
+    "pinia": "^2.0.28",
+    "pretty-bytes": "^6.0.0",
+    "sanitize-html": "^2.8.0"
+  }
 }
