@@ -7,6 +7,7 @@ import config from './config';
 type UploadFileOptions = {
   onProgress?: (progress: number) => void;
   cancelToken?: CancelTokenSource;
+  url?: string;
 };
 
 const { apollo } = config;
@@ -31,10 +32,14 @@ const uploadFileByFetch = function uploadFileByFetch(
   console.log('upload file by fetch', file, options);
   const form = new FormData();
   form.append('file', file);
-  return axios.post('/files/upload', form, {
-    // onUploadProgress: options.onProgress,
-    cancelToken: options.cancelToken?.token,
-  });
+  return axios.post(
+    options.url || '/files/upload',
+    form,
+    {
+      // onUploadProgress: options.onProgress,
+      cancelToken: options.cancelToken?.token,
+    }
+  );
 };
 
 const uploadFileByChecksum = function uploadFileByChecksum(
