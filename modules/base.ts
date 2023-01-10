@@ -155,7 +155,16 @@ const useModule = function useModule(): ModuleDefinition {
         r.then((resource) => {
           resource.merge(this._attributes);
           return resource;
-        }).finally(() => {
+        })
+        .catch((e) => {
+          if (e.graphQLErrors) {
+            const err = { key: 'base', value: e.message };
+            this.setErrors(err);
+          } else {
+            this.setErrors(e);
+          }
+        })
+        .finally(() => {
           this._updating = false;
           this._submitting = false;
         });
@@ -254,9 +263,12 @@ const useModule = function useModule(): ModuleDefinition {
             })
             .catch((e) => {
               if (e.graphQLErrors) {
-                reject({ key: 'base', value: e.message }); //eslint-disable-line
+                const err = { key: 'base', value: e.message };
+                this.setErrors(err);
+                reject(err); //eslint-disable-line
                 // reject(e.message);
               } else {
+                this.setErrors(e);
                 reject(e);
               }
             })
