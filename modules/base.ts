@@ -140,7 +140,7 @@ const useModule = function useModule(): ModuleDefinition {
           this.set(k, attrs[k]);
         });
       },
-      update(options: { validate?: boolean } = {}) {
+      update(options: { validate?: boolean } = {validate: true}) {
         this._updating = true;
         this._submitting = true;
         this.beforeUpdate(options);
@@ -192,7 +192,7 @@ const useModule = function useModule(): ModuleDefinition {
       /**
        * 创建资源，创建过程中会设置状态 _creating
        */
-      create(options: SaveOption = {}) {
+      create(options: SaveOption = {validate: true}) {
         this._creating = true;
         this._submitting = true;
         this.beforeCreate(options);
