@@ -1,6 +1,6 @@
 {
   "name": "pr-resource",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "none",
   "main": "index.ts",
   "directories": {
@@ -25,7 +25,6 @@
     "b-validate": "^1.4.3",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
-    "inflection": "^2.0.1",
     "js-base64": "^3.7.3",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
