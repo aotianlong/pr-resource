@@ -178,7 +178,7 @@ class Connection {
     console.log('prepend', node);
     const nextCursor = Base64.encode(
       String(
-        parseInt(Base64.decode(this.pageInfo?.startCursor as string), 10) - 1
+        parseInt(Base64.decode(this.pageInfo?.startCursor || '1'), 10) - 1
       )
     );
     this.nodes.unshift(node);
