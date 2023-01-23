@@ -1,6 +1,6 @@
 {
   "name": "pr-resource",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "none",
   "main": "index.ts",
   "directories": {
