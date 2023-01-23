@@ -160,9 +160,15 @@ class Connection {
   // 添加进connection
   append(node: AnyObject) {
     console.log('append', node);
+    let endCursor = 1
+    try {
+      endCursor = parseInt(Base64.decode(this.pageInfo?.endCursor), 10)
+    } catch (e) {
+      console.log(e);
+    }
     const nextCursor = Base64.encode(
       String(
-        parseInt(Base64.decode(this.pageInfo?.endCursor as string), 10) + 1
+        endCursor + 1
       )
     );
     this.nodes.push(node);
@@ -176,9 +182,15 @@ class Connection {
 
   prepend(node: AnyObject) {
     console.log('prepend', node);
+    let startCursor = 1
+    try {
+      startCursor = parseInt(Base64.decode(this.pageInfo?.startCursor), 10)
+    } catch (e) {
+      console.log(e);
+    }
     const nextCursor = Base64.encode(
       String(
-        parseInt(Base64.decode(this.pageInfo?.startCursor || '1'), 10) - 1
+        startCursor - 1
       )
     );
     this.nodes.unshift(node);
