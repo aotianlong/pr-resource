@@ -88,6 +88,12 @@ const useModule = function useModule<T>(): ModuleDefinition {
               'frameborder',
               'allowfullscreen',
             ],
+            img: [
+              'src',
+              'alt',
+              'height',
+              'width',
+            ],
           },
         });
       },
